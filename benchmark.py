@@ -86,6 +86,7 @@ def main():
     for i in range(1, NUM_RUNS + 1):
         result = subprocess.run(cmd, capture_output=True, text=True)
         mpi_out = result.stdout.strip()
+        print(f"\nRun {i} Output:\n{mpi_out}")
         # Clean output: take the first non-empty line (assuming rank 0 prints the time)
         cleaned_out = ""
         for line in mpi_out.splitlines():
