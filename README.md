@@ -31,8 +31,11 @@ Parallel and Distributed Programming Project
     ```bash
     python3 benchmark.py
     ```
-
-4. **Notes**
+    Remember to install subprocess
+    ```bash
+    pip install subprocess
+    ```
+5. **Notes**
 
     - Ensure MPI is installed (`mpic++`, `mpiexec`).
     - Adjust input parameters in the source code or as required.
