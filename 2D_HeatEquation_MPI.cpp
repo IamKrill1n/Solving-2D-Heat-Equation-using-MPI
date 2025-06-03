@@ -3,10 +3,10 @@
 #include <string.h> // For memcpy
 #include <math.h>
 #include <mpi.h>
-#include <fstream>  // For file output
-#include <vector>   // For MPI_Gatherv counts and displacements
-#include <iostream> // For std::fixed, std::setprecision
-#include <iomanip>  // For std::fixed, std::setprecision
+#include <fstream>  
+#include <vector>   
+#include <iostream>
+#include <iomanip> 
 
 // Structure to hold simulation parameters
 struct SimParamsMPI {
