@@ -31,7 +31,7 @@ def random_float(min_val, max_val):
 def main():
     # --- Configuration ---
     MPI_SRC = "2D_HeatEquation_MPI.cpp"
-    MPI_EXE = "./heat_equation_2d_mpi"
+    MPI_EXE = "./heat_equation_2d_mpi.exe"
     CXXFLAGS_COMMON = "-O3 -Wall -std=c++17"
 
     print("--- 2D Heat Equation Simulation Runner (Python with Random Boundaries) ---")
