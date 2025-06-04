@@ -145,7 +145,7 @@ void print_final_results(double** u_final, const SimParams& params, double time_
     //     print_grid_section(u_final, params.N_total_pts, "Final u_new (result)");
     // }
 
-    // write_grid_to_file(u_final, params, "output_serial.txt"); // Commented out
+    write_grid_to_file(u_final, params, "output_serial.txt"); // Commented out
 }
 
 int main(int argc, char* argv[]) {

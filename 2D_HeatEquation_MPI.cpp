@@ -265,12 +265,12 @@ int main(int argc, char* argv[]) {
     MPI_Barrier(MPI_COMM_WORLD);
     end_time = MPI_Wtime();
 
-    // gather_and_write_grid_to_file(u_new_local, params, "output_mpi.txt"); // Commented out
+    gather_and_write_grid_to_file(u_new_local, params, "output_mpi.txt"); // Commented out
 
     if (params.rank == 0) {
-        // printf("Finished %d iterations for %dx%d grid (%d inner) in %f seconds using %d processes.\n",
-        //        params.max_iterations, params.N_total_pts, params.N_total_pts, params.n_global, end_time - start_time, params.size);
-        // printf("Parameters: c=%.2f, ds=%.4f, dt=%.6f\n", params.c_const, params.ds, params.dt);
+        printf("Finished %d iterations for %dx%d grid (%d inner) in %f seconds using %d processes.\n",
+               params.max_iterations, params.N_total_pts, params.N_total_pts, params.n_global, end_time - start_time, params.size);
+        printf("Parameters: c=%.2f, ds=%.4f, dt=%.6f\n", params.c_const, params.ds, params.dt);
         std::cout << std::fixed << std::setprecision(6) << (end_time - start_time) << std::endl;
     }
 

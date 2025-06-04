@@ -6,20 +6,20 @@ Parallel and Distributed Programming Project
 1. **Compile the Code**
 
     ```bash
-    mpic++ -o 2D_HeatEquation_MPI.cpp
+    mpic++ 2D_HeatEquation_MPI.cpp -o heat_equation_2d_mpi.exe
     ```
 
 2. **Run with MPI**
-    Make sure the heat_equation_2d_mpi file is executable. In your terminal run:
+    Make sure the heat_equation_2d_mpi.exe file is executable. In your terminal run:
 
     ```bash
-    chmod +x ./heat_equation_2d_mpi
+    chmod +x ./heat_equation_2d_mpi.exe
     ```
 
     Replace `<num_processes>` with the number of processes you want to use:
 
     ```bash
-    mpiexec -np <num_processes> ./heat_equation_2d_mpi
+    mpiexec -np <num_processes> ./heat_equation_2d_mpi.exe
     ```
 3. **Run benchmark**
     To run the benchmark, use one of the following commands depending on your script:
