@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h> // For memcpy
+#include <string.h>
 #include <math.h>
 #include <mpi.h>
 #include <fstream>  
@@ -8,7 +8,6 @@
 #include <iostream>
 #include <iomanip> 
 
-// Structure to hold simulation parameters
 struct SimParamsMPI {
     int n_global;         // Number of INNER grid points globally
     int N_total_pts;      // Total grid points including boundaries (n_global + 2)
@@ -64,13 +63,13 @@ void setup_mpi_simulation_parameters(SimParamsMPI& params) {
     params.ds = 1.0 / (params.n_global + 1);
     params.dt = (params.ds * params.ds) / (4.0 * params.c_const);
 
-    // --- Domain Decomposition ---
+    //Domain Decomposition
     int rows_per_proc = params.N_total_pts / params.size;
     int remainder_rows = params.N_total_pts % params.size;
     params.my_num_rows = rows_per_proc + (params.rank < remainder_rows ? 1 : 0);
     params.my_start_row_global = params.rank * rows_per_proc + (params.rank < remainder_rows ? params.rank : remainder_rows);
 
-    // --- Determine computation range (ifirst, ilast) for local rows ---
+    //Determine computation range (ifirst, ilast) for local rows
     params.ifirst_comp_local = 1;
     params.ilast_comp_local = params.my_num_rows;
 
@@ -116,7 +115,7 @@ void initialize_local_grid(double** u_old_local, double** u_new_local, const Sim
             } else if (j_col == params.N_total_pts - 1) {
                 u_old_local[i_local_actual][j_col] = params.boundary_right;
             } else {
-                u_old_local[i_local_actual][j_col] = 0.0; // Or some other initial condition
+                u_old_local[i_local_actual][j_col] = 0.0; // f(x, y)
             }
             u_new_local[i_local_actual][j_col] = u_old_local[i_local_actual][j_col];
         }
@@ -174,7 +173,6 @@ void run_mpi_simulation(double** u_old_local, double** u_new_local, const SimPar
 }
 
 void gather_and_write_grid_to_file(double** u_local_final, const SimParamsMPI& params, const char* filename) {
-    // This function is now commented out in main, but kept for potential future use.
     double** global_grid = nullptr;
     std::vector<int> recvcounts;
     std::vector<int> displs;
